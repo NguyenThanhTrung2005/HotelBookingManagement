@@ -1,0 +1,66 @@
+﻿@model HotelBookingManagement.Models.LoaiPhong
+
+@{
+    ViewData["Title"] = "Cập nhật loại phòng";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning">
+            <h4 class="mb-0">Cập nhật loại phòng</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Edit" method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="IsActive" />
+
+                <div class="mb-3">
+                    <label asp-for="TenLoaiPhong" class="form-label"></label>
+                    <input asp-for="TenLoaiPhong" class="form-control" />
+                    <span asp-validation-for="TenLoaiPhong" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="MoTa" class="form-label"></label>
+                    <textarea asp-for="MoTa" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="MoTa" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="SoNguoiToiDa" class="form-label"></label>
+                    <input asp-for="SoNguoiToiDa" class="form-control" type="number" min="1" />
+                    <span asp-validation-for="SoNguoiToiDa" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="GiaCoBan" class="form-label"></label>
+                    <input asp-for="GiaCoBan" class="form-control" type="number" min="0" step="1000" />
+                    <span asp-validation-for="GiaCoBan" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        Quay lại
+                    </a>
+
+                    <button type="submit" class="btn btn-warning">
+                        Cập nhật
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

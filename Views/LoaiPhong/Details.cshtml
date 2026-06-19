@@ -1,0 +1,55 @@
+﻿@model HotelBookingManagement.Models.LoaiPhong
+
+@{
+    ViewData["Title"] = "Chi tiết loại phòng";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Chi tiết loại phòng</h4>
+        </div>
+
+        <div class="card-body">
+
+            <dl class="row">
+                <dt class="col-sm-3">Tên loại phòng</dt>
+                <dd class="col-sm-9">@Model.TenLoaiPhong</dd>
+
+                <dt class="col-sm-3">Mô tả</dt>
+                <dd class="col-sm-9">@Model.MoTa</dd>
+
+                <dt class="col-sm-3">Số người tối đa</dt>
+                <dd class="col-sm-9">@Model.SoNguoiToiDa</dd>
+
+                <dt class="col-sm-3">Giá cơ bản</dt>
+                <dd class="col-sm-9">@Model.GiaCoBan.ToString("N0") VNĐ</dd>
+
+                <dt class="col-sm-3">Trạng thái</dt>
+                <dd class="col-sm-9">
+                    @if (Model.IsActive)
+                    {
+                        <span class="badge bg-success">Đang sử dụng</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">Ngừng sử dụng</span>
+                    }
+                </dd>
+            </dl>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">
+                    Quay lại
+                </a>
+
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                    Sửa
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

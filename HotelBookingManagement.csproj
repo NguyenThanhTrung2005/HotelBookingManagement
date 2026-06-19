@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-HotelBookingManagement-005ce329-97bb-46ed-9fe4-ad16aec35577</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.27" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.27" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.27" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\KhachHang\" />
+    <Folder Include="Views\DatPhong\" />
+    <Folder Include="Views\HoaDon\" />
+    <Folder Include="Views\ThongKe\" />
+    <Folder Include="Views\Phong\" />
+  </ItemGroup>
+
+</Project>
