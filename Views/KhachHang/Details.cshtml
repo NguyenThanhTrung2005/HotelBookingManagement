@@ -1,0 +1,42 @@
+﻿@model HotelBookingManagement.Models.KhachHang
+
+@{
+	ViewData["Title"] = "Chi tiết khách hàng";
+}
+
+<h2>Chi tiết khách hàng</h2>
+
+<hr />
+
+<dl class="row">
+
+	<dt class="col-sm-3">Họ tên</dt>
+	<dd class="col-sm-9">@Model.HoTen</dd>
+
+	<dt class="col-sm-3">Số điện thoại</dt>
+	<dd class="col-sm-9">@Model.SoDienThoai</dd>
+
+	<dt class="col-sm-3">Email</dt>
+	<dd class="col-sm-9">@Model.Email</dd>
+
+	<dt class="col-sm-3">CCCD</dt>
+	<dd class="col-sm-9">@Model.CCCD</dd>
+
+	<dt class="col-sm-3">Địa chỉ</dt>
+	<dd class="col-sm-9">@Model.DiaChi</dd>
+
+	<dt class="col-sm-3">Ghi chú</dt>
+	<dd class="col-sm-9">@Model.GhiChu</dd>
+
+</dl>
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id"
+   class="btn btn-warning">
+	Sửa
+</a>
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+	Quay lại
+</a>

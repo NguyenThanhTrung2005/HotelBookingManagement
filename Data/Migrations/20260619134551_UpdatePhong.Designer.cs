@@ -4,6 +4,7 @@ using HotelBookingManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelBookingManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260619134551_UpdatePhong")]
+    partial class UpdatePhong
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,93 +97,6 @@ namespace HotelBookingManagement.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("HotelBookingManagement.Models.DatPhong", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("GhiChu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("KhachHangId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("NgayNhanPhong")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("NgayTraPhong")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PhongId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SoNguoi")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TrangThai")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("KhachHangId");
-
-                    b.HasIndex("PhongId");
-
-                    b.ToTable("DatPhongs");
-                });
-
-            modelBuilder.Entity("HotelBookingManagement.Models.HoaDon", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DatPhongId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("GhiChu")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("NgayLap")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("PhuThu")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SoDem")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TienPhong")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("TongTien")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("TrangThai")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DatPhongId");
-
-                    b.ToTable("HoaDons");
                 });
 
             modelBuilder.Entity("HotelBookingManagement.Models.KhachHang", b =>
@@ -446,36 +362,6 @@ namespace HotelBookingManagement.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("HotelBookingManagement.Models.DatPhong", b =>
-                {
-                    b.HasOne("HotelBookingManagement.Models.KhachHang", "KhachHang")
-                        .WithMany()
-                        .HasForeignKey("KhachHangId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HotelBookingManagement.Models.Phong", "Phong")
-                        .WithMany()
-                        .HasForeignKey("PhongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("KhachHang");
-
-                    b.Navigation("Phong");
-                });
-
-            modelBuilder.Entity("HotelBookingManagement.Models.HoaDon", b =>
-                {
-                    b.HasOne("HotelBookingManagement.Models.DatPhong", "DatPhong")
-                        .WithMany()
-                        .HasForeignKey("DatPhongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DatPhong");
                 });
 
             modelBuilder.Entity("HotelBookingManagement.Models.Phong", b =>

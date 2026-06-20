@@ -1,0 +1,83 @@
+﻿@model HotelBookingManagement.Models.DatPhong
+
+@{
+    ViewData["Title"] = "Đặt phòng";
+}
+
+<h2>Đặt phòng</h2>
+
+<hr />
+
+<div class="row">
+
+    <div class="col-md-8">
+
+        <form asp-action="Create">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="KhachHangId"></label>
+                <select asp-for="KhachHangId"
+                        asp-items="ViewBag.KhachHangId"
+                        class="form-select">
+                    <option value="">-- Chọn khách hàng --</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PhongId"></label>
+                <select asp-for="PhongId"
+                        asp-items="ViewBag.PhongId"
+                        class="form-select">
+                    <option value="">-- Chọn phòng --</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NgayNhanPhong"></label>
+                <input asp-for="NgayNhanPhong"
+                       type="date"
+                       class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NgayTraPhong"></label>
+                <input asp-for="NgayTraPhong"
+                       type="date"
+                       class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SoNguoi"></label>
+                <input asp-for="SoNguoi"
+                       class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="GhiChu"></label>
+                <textarea asp-for="GhiChu"
+                          class="form-control"></textarea>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-success">
+                Lưu
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Quay lại
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

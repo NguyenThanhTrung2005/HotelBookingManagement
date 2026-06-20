@@ -1,0 +1,48 @@
+﻿@model HotelBookingManagement.Models.Phong
+
+@{
+    ViewData["Title"] = "Chi tiết phòng";
+}
+
+<h2>Chi tiết phòng</h2>
+
+<hr />
+
+<dl class="row">
+
+    <dt class="col-sm-3">Mã phòng</dt>
+    <dd class="col-sm-9">@Model.MaPhong</dd>
+
+    <dt class="col-sm-3">Tên phòng</dt>
+    <dd class="col-sm-9">@Model.TenPhong</dd>
+
+    <dt class="col-sm-3">Số phòng</dt>
+    <dd class="col-sm-9">@Model.SoPhong</dd>
+
+    <dt class="col-sm-3">Tầng</dt>
+    <dd class="col-sm-9">@Model.Tang</dd>
+
+    <dt class="col-sm-3">Giá phòng</dt>
+    <dd class="col-sm-9">@Model.GiaPhong.ToString("N0") VNĐ</dd>
+
+    <dt class="col-sm-3">Loại phòng</dt>
+    <dd class="col-sm-9">@Model.LoaiPhong?.TenLoaiPhong</dd>
+
+    <dt class="col-sm-3">Tiện nghi</dt>
+    <dd class="col-sm-9">@Model.TienNghi</dd>
+
+    <dt class="col-sm-3">Mô tả</dt>
+    <dd class="col-sm-9">@Model.MoTa</dd>
+
+</dl>
+
+<a asp-action="Edit"
+   asp-route-id="@Model.Id"
+   class="btn btn-warning">
+    Sửa
+</a>
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+    Quay lại
+</a>

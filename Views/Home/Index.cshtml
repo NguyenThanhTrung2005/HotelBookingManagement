@@ -2,117 +2,249 @@
     ViewData["Title"] = "Trang chủ";
 }
 
-<div class="container mt-4">
+<div class="container-fluid p-0">
 
-    <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
-        <div class="container-fluid py-4">
-            <h1 class="display-5 fw-bold">Hệ thống quản lý đặt phòng khách sạn</h1>
-            <p class="col-md-10 fs-5">
-                Website hỗ trợ quản lý khách hàng, phòng khách sạn, đặt phòng,
-                check-in, check-out, hóa đơn, thanh toán và thống kê doanh thu.
-            </p>
-            <a asp-controller="Phong" asp-action="Index" class="btn btn-primary btn-lg">
-                Xem danh sách phòng
-            </a>
+    <!-- Banner -->
+    <div id="hotelCarousel" class="carousel slide carousel-fade mb-5"
+         data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="~/images/hotel1.jpg"
+                     class="d-block w-100"
+                     style="height:600px; object-fit:cover;" />
+
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-3 fw-bold">
+                        HOTEL BOOKING MANAGEMENT
+                    </h1>
+
+                    <p class="fs-4">
+                        Hệ thống quản lý đặt phòng khách sạn chuyên nghiệp
+                    </p>
+
+                    <a asp-controller="DatPhong"
+                       asp-action="Create"
+                       class="btn btn-warning btn-lg">
+                        Đặt phòng ngay
+                    </a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/images/hotel2.jpg"
+                     class="d-block w-100"
+                     style="height:600px; object-fit:cover;" />
+
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="fw-bold">
+                        Luxury Hotel
+                    </h1>
+
+                    <p>
+                        Trải nghiệm dịch vụ đẳng cấp 5 sao
+                    </p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/images/hotel3.jpg"
+                     class="d-block w-100"
+                     style="height:600px; object-fit:cover;" />
+
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="fw-bold">
+                        Comfortable Rooms
+                    </h1>
+
+                    <p>
+                        Không gian nghỉ dưỡng hiện đại và tiện nghi
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#hotelCarousel"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#hotelCarousel"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+    </div>
+
+    <!-- Thống kê -->
+    <div class="container mb-5">
+
+        <h2 class="text-center mb-4">
+            Tổng quan hệ thống
+        </h2>
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <h1 class="text-primary">🏨</h1>
+                        <h4>Tổng phòng</h4>
+                        <p>Quản lý toàn bộ phòng khách sạn</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <h1 class="text-success">🛏️</h1>
+                        <h4>Phòng trống</h4>
+                        <p>Sẵn sàng phục vụ khách</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <h1 class="text-warning">👥</h1>
+                        <h4>Khách hàng</h4>
+                        <p>Quản lý thông tin khách hàng</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <h1 class="text-danger">💰</h1>
+                        <h4>Doanh thu</h4>
+                        <p>Thống kê hóa đơn</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="row g-4">
+    <!-- Chức năng -->
+    <div class="container mb-5">
 
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Quản lý loại phòng</h5>
-                    <p class="card-text">
-                        Thêm, sửa, xóa và xem danh sách các loại phòng như phòng đơn,
-                        phòng đôi, phòng gia đình hoặc phòng VIP.
-                    </p>
-                    <a asp-controller="LoaiPhong" asp-action="Index" class="btn btn-outline-primary">
-                        Vào quản lý
-                    </a>
+        <h2 class="text-center mb-4">
+            Chức năng hệ thống
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h3>🏷️</h3>
+                        <h5>Loại phòng</h5>
+                        <p>Quản lý các loại phòng khách sạn</p>
+                        <a asp-controller="LoaiPhong"
+                           asp-action="Index"
+                           class="btn btn-primary">
+                            Truy cập
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Quản lý phòng</h5>
-                    <p class="card-text">
-                        Quản lý thông tin phòng, giá phòng, tầng, tiện nghi,
-                        mô tả và trạng thái phòng trong khách sạn.
-                    </p>
-                    <a asp-controller="Phong" asp-action="Index" class="btn btn-outline-primary">
-                        Vào quản lý
-                    </a>
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h3>🏨</h3>
+                        <h5>Phòng</h5>
+                        <p>Quản lý danh sách phòng</p>
+                        <a asp-controller="Phong"
+                           asp-action="Index"
+                           class="btn btn-primary">
+                            Truy cập
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Quản lý khách hàng</h5>
-                    <p class="card-text">
-                        Lưu trữ thông tin khách hàng, số điện thoại, email,
-                        căn cước công dân, địa chỉ và lịch sử đặt phòng.
-                    </p>
-                    <a asp-controller="KhachHang" asp-action="Index" class="btn btn-outline-primary">
-                        Vào quản lý
-                    </a>
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h3>👤</h3>
+                        <h5>Khách hàng</h5>
+                        <p>Quản lý khách lưu trú</p>
+                        <a asp-controller="KhachHang"
+                           asp-action="Index"
+                           class="btn btn-primary">
+                            Truy cập
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h3>📅</h3>
+                        <h5>Đặt phòng</h5>
+                        <p>Tạo và quản lý phiếu đặt phòng</p>
+                        <a asp-controller="DatPhong"
+                           asp-action="Index"
+                           class="btn btn-success">
+                            Truy cập
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h3>🧾</h3>
+                        <h5>Hóa đơn</h5>
+                        <p>Thanh toán và quản lý hóa đơn</p>
+                        <a asp-controller="HoaDon"
+                           asp-action="Index"
+                           class="btn btn-success">
+                            Truy cập
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body text-center">
+                        <h3>📊</h3>
+                        <h5>Thống kê</h5>
+                        <p>Xem báo cáo doanh thu</p>
+                        <a asp-controller="ThongKe"
+                           asp-action="Index"
+                           class="btn btn-success">
+                            Truy cập
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
-    <div class="row g-4 mt-2">
-
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Đặt phòng</h5>
-                    <p class="card-text">
-                        Tạo phiếu đặt phòng trực tiếp hoặc đặt trước,
-                        kiểm tra phòng trống và quản lý trạng thái đặt phòng.
-                    </p>
-                    <a asp-controller="DatPhong" asp-action="Index" class="btn btn-outline-success">
-                        Vào quản lý
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Hóa đơn</h5>
-                    <p class="card-text">
-                        Tạo hóa đơn khi khách check-out, tính tiền phòng,
-                        phụ thu và cập nhật trạng thái thanh toán.
-                    </p>
-                    <a asp-controller="HoaDon" asp-action="Index" class="btn btn-outline-success">
-                        Vào quản lý
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Thống kê</h5>
-                    <p class="card-text">
-                        Theo dõi doanh thu, số lượng phòng trống,
-                        phòng đã đặt, phòng đang sử dụng và phòng bảo trì.
-                    </p>
-                    <a asp-controller="ThongKe" asp-action="Index" class="btn btn-outline-success">
-                        Vào thống kê
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-4">
+        <p class="mb-0">
+            © 2026 Hotel Booking Management System
+        </p>
+    </footer>
 
 </div>

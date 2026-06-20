@@ -1,0 +1,74 @@
+﻿@model HotelBookingManagement.Models.DatPhong
+
+@{
+    ViewData["Title"] = "Chi tiết đặt phòng";
+}
+
+<h2>Chi tiết đặt phòng</h2>
+
+<hr />
+
+<dl class="row">
+
+    <dt class="col-sm-3">
+        Khách hàng
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.KhachHang?.HoTen
+    </dd>
+
+    <dt class="col-sm-3">
+        Phòng
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.Phong?.TenPhong
+    </dd>
+
+    <dt class="col-sm-3">
+        Ngày nhận
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.NgayNhanPhong.ToString("dd/MM/yyyy")
+    </dd>
+
+    <dt class="col-sm-3">
+        Ngày trả
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.NgayTraPhong.ToString("dd/MM/yyyy")
+    </dd>
+
+    <dt class="col-sm-3">
+        Số người
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.SoNguoi
+    </dd>
+
+    <dt class="col-sm-3">
+        Ghi chú
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.GhiChu
+    </dd>
+
+    <dt class="col-sm-3">
+        Trạng thái
+    </dt>
+
+    <dd class="col-sm-9">
+        @Model.TrangThai
+    </dd>
+
+</dl>
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+    Quay lại
+</a>

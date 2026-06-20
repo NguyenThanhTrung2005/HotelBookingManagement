@@ -15,6 +15,10 @@ namespace HotelBookingManagement.Data
         public DbSet<LoaiPhong> LoaiPhongs { get; set; }
         public DbSet<Phong> Phongs { get; set; }
 
+        public DbSet<DatPhong> DatPhongs { get; set; }
+
+        public DbSet<HoaDon> HoaDons { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -25,6 +29,10 @@ namespace HotelBookingManagement.Data
 
             builder.Entity<Phong>()
                 .Property(x => x.GiaPhong)
+                .HasPrecision(18, 2);
+
+            builder.Entity<HoaDon>()
+                .Property(x => x.TongTien)
                 .HasPrecision(18, 2);
         }
     }

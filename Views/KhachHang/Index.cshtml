@@ -1,0 +1,127 @@
+﻿@model IEnumerable<HotelBookingManagement.Models.KhachHang>
+
+@{
+    ViewData["Title"] = "Danh sách khách hàng";
+}
+
+<div class="container mt-4">
+
+    
+    <h2 class="mb-4">
+        Danh sách khách hàng
+    </h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <div class="row mb-3">
+
+        <div class="col-md-6">
+            <form method="get">
+                <div class="input-group">
+
+                    <input type="text"
+                           name="searchString"
+                           value="@ViewBag.SearchString"
+                           class="form-control"
+                           placeholder="Tìm theo tên, CCCD hoặc SĐT..." />
+
+                    <button type="submit" class="btn btn-primary">
+                        Tìm kiếm
+                    </button>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6 text-end">
+            <a asp-action="Create"
+               class="btn btn-success">
+                Thêm khách hàng
+            </a>
+        </div>
+
+    </div>
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Họ tên</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>CCCD</th>
+                <th>Địa chỉ</th>
+                <th width="230">Thao tác</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.HoTen</td>
+
+                        <td>@item.SoDienThoai</td>
+
+                        <td>@item.Email</td>
+
+                        <td>@item.CCCD</td>
+
+                        <td>@item.DiaChi</td>
+
+                        <td>
+
+                            <a asp-action="Details"
+                               asp-route-id="@item.Id"
+                               class="btn btn-info btn-sm">
+                                Chi tiết
+                            </a>
+
+                            <a asp-action="Edit"
+                               asp-route-id="@item.Id"
+                               class="btn btn-warning btn-sm">
+                                Sửa
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@item.Id"
+                               class="btn btn-danger btn-sm">
+                                Xóa
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">
+                        Không có dữ liệu
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+    
+
+</div>

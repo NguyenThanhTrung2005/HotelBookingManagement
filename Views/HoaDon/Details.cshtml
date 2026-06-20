@@ -1,0 +1,104 @@
+﻿@model HotelBookingManagement.Models.HoaDon
+
+@{
+    ViewData["Title"] = "Chi tiết hóa đơn";
+}
+
+<h2>Chi tiết hóa đơn</h2>
+
+<hr />
+
+<div class="card">
+
+    <div class="card-header bg-primary text-white">
+        Hóa đơn #@Model.Id
+    </div>
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                Khách hàng
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.DatPhong?.KhachHang?.HoTen
+            </dd>
+
+            <dt class="col-sm-3">
+                Phòng
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.DatPhong?.Phong?.TenPhong
+            </dd>
+
+            <dt class="col-sm-3">
+                Ngày nhận phòng
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.DatPhong?.NgayNhanPhong.ToString("dd/MM/yyyy")
+            </dd>
+
+            <dt class="col-sm-3">
+                Ngày trả phòng
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.DatPhong?.NgayTraPhong.ToString("dd/MM/yyyy")
+            </dd>
+
+            <dt class="col-sm-3">
+                Số đêm
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.SoDem
+            </dd>
+
+            <dt class="col-sm-3">
+                Tiền phòng
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.TienPhong.ToString("N0") VNĐ
+            </dd>
+
+            <dt class="col-sm-3">
+                Phụ thu
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.PhuThu.ToString("N0") VNĐ
+            </dd>
+
+            <dt class="col-sm-3">
+                Tổng tiền
+            </dt>
+
+            <dd class="col-sm-9 text-danger fw-bold">
+                @Model.TongTien.ToString("N0") VNĐ
+            </dd>
+
+            <dt class="col-sm-3">
+                Trạng thái
+            </dt>
+
+            <dd class="col-sm-9">
+                @Model.TrangThai
+            </dd>
+
+        </dl>
+
+    </div>
+
+</div>
+
+<br />
+
+<a asp-action="Index"
+   class="btn btn-secondary">
+    Quay lại
+</a>

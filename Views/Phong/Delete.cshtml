@@ -1,0 +1,41 @@
+﻿@model HotelBookingManagement.Models.Phong
+
+@{
+    ViewData["Title"] = "Xóa phòng";
+}
+
+<h2>Xóa phòng</h2>
+
+<div class="alert alert-danger">
+    Bạn có chắc chắn muốn xóa phòng này không?
+</div>
+
+<hr />
+
+<dl class="row">
+
+    <dt class="col-sm-3">Mã phòng</dt>
+    <dd class="col-sm-9">@Model.MaPhong</dd>
+
+    <dt class="col-sm-3">Tên phòng</dt>
+    <dd class="col-sm-9">@Model.TenPhong</dd>
+
+    <dt class="col-sm-3">Loại phòng</dt>
+    <dd class="col-sm-9">@Model.LoaiPhong?.TenLoaiPhong</dd>
+
+</dl>
+
+<form asp-action="Delete">
+
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">
+        Xác nhận xóa
+    </button>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+        Hủy
+    </a>
+
+</form>
